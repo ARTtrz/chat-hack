@@ -56,6 +56,8 @@ export default async function handler(
       question: sanitizedQuestion,
       chat_history: pastMessages
     });
+  
+    
 
     console.log('response', response);
     res.status(200).json(response);
