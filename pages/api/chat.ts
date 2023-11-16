@@ -59,7 +59,7 @@ export default async function handler(
   
     
 
-    console.log('response', response);
+    console.log('res', response);
     res.status(200).json(response);
   } catch (error: any) {
     console.log('error', error);
