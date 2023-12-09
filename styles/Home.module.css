@@ -25,7 +25,8 @@
   padding: 1rem 2rem 1rem 2rem;
   width: 75vw;
   border-radius: 0.5rem;
-  border: 1px solid #d9d9e3;
+  /* border: 1px solid #d9d9e3; */
+  border: 1px solid #000;
   background: #ffffff;
   color: #000;
   outline: none;
@@ -121,9 +122,9 @@
 }
 
 .apimessage {
-  background: #f9fafb;
+  background: #10295A;
   padding: 1.5rem;
-  color: #000;
+  color: #fff;
   animation: fadein 0.5s;
 }
 
@@ -193,7 +194,8 @@
   height: 65vh;
   background: #ffffff;
   border-radius: 0.5rem;
-  border: 1px solid #d9d9e3;
+  /* border: 1px solid #d9d9e3; */
+  border: 1px solid #000;
   display: flex;
   justify-content: center;
   align-items: center;

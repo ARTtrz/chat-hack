@@ -120,26 +120,29 @@ export default function Home() {
     }
   };
 
+
+
   return (
     <>
       <Layout>
         <div className="mx-auto flex flex-col gap-4">
-          <h1 className="text-2xl font-bold leading-[1.1] tracking-tighter text-center">
-            Универсальный Наставник
-          </h1>
+          {/* <h1 className="text-2xl font-semibold leading-[1.1] tracking-tighter text-start">
+            Universal Mentor
+          </h1> */}
           <main className={styles.main}>
             <div className={styles.cloud}>
               <div ref={messageListRef} className={styles.messagelist}>
                 {messages.map((message, index) => {
+                  console.log(message.sourceDocs, 'sourcedocs')
                   let icon;
                   let className;
                   if (message.type === 'apiMessage') {
                     icon = (
                       <Image
                         key={index}
-                        src="/bot-image.png"
+                        src="/bot.png"
                         alt="AI"
-                        width="40"
+                        width="20"
                         height="40"
                         className={styles.boticon}
                         priority
@@ -150,10 +153,10 @@ export default function Home() {
                     icon = (
                       <Image
                         key={index}
-                        src="/usericon.png"
+                        src="/user.svg"
                         alt="Me"
-                        width="30"
-                        height="30"
+                        width="25"
+                        height="10"
                         className={styles.usericon}
                         priority
                       />
@@ -174,7 +177,7 @@ export default function Home() {
                           </ReactMarkdown>
                         </div>
                       </div>
-                      {message.sourceDocs && (
+                      {message.sourceDocs?.length ? (
                         <div
                           className="p-5"
                           key={`sourceDocsAccordion-${index}`}
@@ -184,7 +187,7 @@ export default function Home() {
                             collapsible
                             className="flex-col"
                           >
-                            {message.sourceDocs.map((doc, index) => (
+                            {message.sourceDocs.length ? (message.sourceDocs.map((doc, index) => (
                               <div key={`messageSourceDocs-${index}`}>
                                 <AccordionItem value={`item-${index}`}>
                                   <AccordionTrigger>
@@ -200,10 +203,10 @@ export default function Home() {
                                   </AccordionContent>
                                 </AccordionItem>
                               </div>
-                            ))}
+                            ))) : <div></div>}
                           </Accordion>
                         </div>
-                      )}
+                      ) : (<div></div>)}
                     </>
                   );
                 })}
@@ -224,7 +227,7 @@ export default function Home() {
                     placeholder={
                       loading
                         ? 'Waiting for response...'
-                        : 'What is this legal case about?'
+                        : 'Ask anything...'
                     }
                     value={query}
                     onChange={(e) => setQuery(e.target.value)}
@@ -262,7 +265,7 @@ export default function Home() {
         </div>
         <footer className="m-auto p-4">
           <a href="#">
-            Powered by NIS Hackathon Team
+            Powered by NOMAD
           </a>
         </footer>
       </Layout>
