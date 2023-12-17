@@ -198,7 +198,13 @@ export default function Home() {
                                       {doc.pageContent}
                                     </ReactMarkdown>
                                     <p className="mt-2">
-                                      <b>Source:</b> {doc.metadata.source}
+                                      <b className="mr-2">Source:</b> 
+
+                                      <>
+                                        {
+                                          doc.metadata.source.split('/').pop() == "book (1).pdf" ? "Competitive Programmer’s Handbook" : doc.metadata.source.split('/').pop()
+                                        }
+                                      </>
                                     </p>
                                   </AccordionContent>
                                 </AccordionItem>
